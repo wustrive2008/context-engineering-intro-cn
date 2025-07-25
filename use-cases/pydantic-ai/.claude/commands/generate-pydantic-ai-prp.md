@@ -1,94 +1,94 @@
-# Create PRP
+# 创建 PRP
 
-## Feature file: $ARGUMENTS
+## 功能文件：$ARGUMENTS
 
-Generate a complete PRP for general feature implementation with thorough research. Ensure context is passed to the AI agent to enable self-validation and iterative refinement. Read the feature file first to understand what needs to be created, how the examples provided help, and any other considerations.
+为通用功能实现生成一份完整的 PRP，需进行充分调研。确保将上下文传递给 AI agent，使其能够自我验证并迭代完善。请先阅读功能文件，理解需要创建的内容、示例的作用及其他注意事项。
 
-The AI agent only gets the context you are appending to the PRP and training data. Assuma the AI agent has access to the codebase and the same knowledge cutoff as you, so its important that your research findings are included or referenced in the PRP. The Agent has Websearch capabilities, so pass urls to documentation and examples.
+AI agent 只能获取你附加到 PRP 和训练数据中的上下文。假设 AI agent 能访问代码库且知识截止点与你一致，因此你的调研结论必须包含或在 PRP 中引用。Agent 具备 Web 搜索能力，请传递文档和示例的 URL。
 
-## Research Process
+## 调研流程
 
-1. **Codebase Analysis**
-   - Search for similar features/patterns in the codebase
-   - Identify files to reference in PRP
-   - Note existing conventions to follow
-   - Check test patterns for validation approach
+1. **代码库分析**
+   - 检索代码库中类似的功能/模式
+   - 确定需要在 PRP 中引用的文件
+   - 记录需要遵循的现有约定
+   - 检查测试模式以确定验证方法
 
-2. **External Research**
-   - Search for similar features/patterns online
-   - Library documentation (include specific URLs)
-   - Implementation examples (GitHub/StackOverflow/blogs)
-   - Best practices and common pitfalls
-   - Use Archon MCP server to gather latest Pydantic AI documentation
-   - Web search for specific patterns and best practices relevant to the agent type
-   - Research model provider capabilities and limitations
-   - Investigate tool integration patterns and security considerations
-   - Document async/sync patterns and testing strategies   
+2. **外部调研**
+   - 在线检索类似功能/模式
+   - 查阅库文档（附具体 URL）
+   - 查找实现示例（GitHub/StackOverflow/博客）
+   - 总结最佳实践与常见陷阱
+   - 使用 Archon MCP server 获取最新 Pydantic AI 文档
+   - 针对 agent 类型进行特定模式和最佳实践的网络检索
+   - 调研模型提供方的能力与限制
+   - 调查工具集成模式与安全注意事项
+   - 记录异步/同步模式与测试策略
 
-3. **User Clarification** (if needed)
-   - Specific patterns to mirror and where to find them?
-   - Integration requirements and where to find them?
+3. **用户澄清**（如有需要）
+   - 需要参考哪些具体模式？在哪里可以找到？
+   - 有哪些集成需求？在哪里可以找到？
 
-4. **Analyzing Initial Requirements**
-   - Read and understand the agent feature requirements
-   - Identify the type of agent needed (chat, tool-enabled, workflow, structured output)
-   - Determine required model providers and external integrations
-   - Assess complexity and scope of the agent implementation
+4. **分析初始需求**
+   - 阅读并理解 agent 功能需求
+   - 明确所需 agent 类型（对话、工具增强、工作流、结构化输出等）
+   - 确定所需模型提供方和外部集成
+   - 评估 agent 实现的复杂度和范围
 
-5. **Agent Architecture Planning**
-   - Design agent structure (agent.py, tools.py, models.py, dependencies.py)
-   - Plan dependency injection patterns and external service integrations
-   - Design structured output models using Pydantic validation
-   - Plan tool registration and parameter validation strategies
-   - Design testing approach with TestModel/FunctionModel patterns
+5. **Agent 架构规划**
+   - 设计 agent 结构（agent.py、tools.py、models.py、dependencies.py）
+   - 规划依赖注入模式和外部服务集成
+   - 用 Pydantic 校验设计结构化输出模型
+   - 规划工具注册和参数校验策略
+   - 设计测试方案，采用 TestModel/FunctionModel 模式
 
-6. **Implementation Blueprint Creation**
-   - Create detailed agent implementation steps
-   - Plan model provider configuration and fallback strategies
-   - Design tool error handling and retry mechanisms
-   - Plan security implementation (API keys, input validation, rate limiting)
-   - Design validation loops with agent behavior testing
+6. **实现蓝图制定**
+   - 制定详细的 agent 实现步骤
+   - 规划模型提供方配置及降级策略
+   - 设计工具错误处理和重试机制
+   - 规划安全实现（API key、输入校验、限流）
+   - 设计带有 agent 行为测试的验证循环
 
-## PRP Generation
+## PRP 生成
 
-Using PRPs/templates/prp_pydantic_aibase.md as template:
+以 PRPs/templates/prp_pydantic_aibase.md 为模板：
 
-### Critical Context to Include and pass to the AI agent as part of the PRP
-- **Documentation**: URLs with specific sections
-- **Code Examples**: Real snippets from codebase
-- **Gotchas**: Library quirks, version issues
-- **Patterns**: Existing approaches to follow
+### 关键上下文（需包含并传递给 AI agent）
+- **文档**：带具体章节的 URL
+- **代码示例**：代码库中的真实片段
+- **注意事项**：库的特殊点、版本问题
+- **模式**：现有可复用的实现方式
 
-### Implementation Blueprint
-- Start with pseudocode showing approach
-- Reference real files for patterns
-- Include error handling strategy
-- list tasks to be completed to fullfill the PRP in the order they should be completed
+### 实现蓝图
+- 以伪代码展示实现思路
+- 参考真实文件中的实现模式
+- 包含错误处理策略
+- 按顺序列出完成 PRP 所需的全部任务
 
-### Validation Gates (Must be Executable) eg for python
+### 验证门槛（必须可执行，例如 python）
 ```bash
-# Syntax/Style
+# 语法/风格检查
 ruff check --fix && mypy .
 
-# Unit Tests
+# 单元测试
 uv run pytest tests/ -v
 
 ```
 
-*** CRITICAL AFTER YOU ARE DONE RESEARCHING AND EXPLORING THE CODEBASE BEFORE YOU START WRITING THE PRP ***
+*** 在你完成调研和代码库探索后、开始撰写 PRP 前，务必执行本步骤 ***
 
-*** ULTRATHINK ABOUT THE PRP AND PLAN YOUR APPROACH THEN START WRITING THE PRP ***
+*** 深度思考（ULTRATHINK）PRP 并规划你的方案，然后开始撰写 PRP ***
 
-## Output
-Save as: `PRPs/{feature-name}.md`
+## 输出
+保存为：`PRPs/{feature-name}.md`
 
-## Quality Checklist
-- [ ] All necessary context included
-- [ ] Validation gates are executable by AI
-- [ ] References existing patterns
-- [ ] Clear implementation path
-- [ ] Error handling documented
+## 质量检查清单
+- [ ] 包含所有必要上下文
+- [ ] 验证门槛可被 AI 执行
+- [ ] 参考了现有实现模式
+- [ ] 实现路径清晰
+- [ ] 错误处理有说明
 
-Score the PRP on a scale of 1-10 (confidence level to succeed in one-pass implementation using claude codes)
+请为 PRP 打分（1-10 分，表示用 claude codes 一次性实现成功的信心）
 
-Remember: The goal is one-pass implementation success through comprehensive context.
+请记住：目标是通过全面上下文，一次性高质量实现。

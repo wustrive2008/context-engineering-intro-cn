@@ -1,47 +1,47 @@
-## FEATURE:
+## 功能描述（FEATURE）:
 
-[REPLACE EVERYTHING IN BRACKETS WITH YOUR OWN CONTEXT]
-[Provide an overview of the agent you want to build. The more detail the better!]
-[Overly simple example: Build a simple research agent using Pydantic AI that can research topics with the Brave API and draft emails with Gmail to share insights.]
+[请用你自己的内容替换所有中括号部分]
+[简要概述你要构建的智能体，越详细越好！]
+[示例：构建一个简单的调研智能体，能用 Pydantic AI 结合 Brave API 进行主题调研，并用 Gmail 草稿邮件分享洞见。]
 
-## TOOLS:
+## 工具（TOOLS）:
 
-[Describe the tools you want for your agent(s) - functionality, arguments, what they return, etc. Be as specific as you like - the more specific the better.]
+[描述你希望智能体具备的工具——功能、参数、返回值等，越具体越好。]
 
-## DEPENDENCIES
+## 依赖（DEPENDENCIES）
 
-[Describe the dependencies needed for the agent tools (for the Pydantic AI RunContext) - things like API keys, DB connections, an HTTP client, etc.]
+[描述智能体工具所需的依赖（Pydantic AI RunContext），如 API key、数据库连接、HTTP 客户端等。]
 
-## SYSTEM PROMPT(S)
+## 系统提示词（SYSTEM PROMPT(S)）
 
-[Describe the instructions for the agent(s) here - you can create the entire system prompt here or give a general description to guide the coding assistant]
+[描述智能体的系统指令——可以直接写完整提示词，也可以给出指导性描述。]
 
-## EXAMPLES:
+## 示例（EXAMPLES）:
 
-[Add any additional example agents/tool implementations from past projects or online resources to the examples/ folder and reference them here.]
-[The template contains the following already for Pydantic AI:]
+[如有更多示例智能体/工具实现，可放在 examples/ 文件夹并在此引用。]
+[本模板已包含以下 Pydantic AI 示例：]
 
-- examples/basic_chat_agent - Basic chat agent with conversation memory
-- examples/tool_enabled_agent - Tool-enabled agent with web search capabilities  
-- examples/structured_output_agent - Structured output agent for data validation
-- examples/testing_examples - Testing examples with TestModel and FunctionModel
-- examples/main_agent_reference - Best practices for building Pydantic AI agents
+- examples/basic_chat_agent —— 带对话记忆的基础聊天智能体
+- examples/tool_enabled_agent —— 支持网页搜索的工具增强型智能体
+- examples/structured_output_agent —— 用于数据校验的结构化输出智能体
+- examples/testing_examples —— 包含 TestModel 和 FunctionModel 的测试示例
+- examples/main_agent_reference —— Pydantic AI 智能体最佳实践
 
-## DOCUMENTATION:
+## 文档（DOCUMENTATION）:
 
-[Add any additional documentation you want it to reference - this can be curated docs you put in PRPs/ai_docs, URLs, etc.]
+[如需引用更多文档，可放在 PRPs/ai_docs 或添加 URL。]
 
-- Pydantic AI Official Documentation: https://ai.pydantic.dev/
-- Agent Creation Guide: https://ai.pydantic.dev/agents/
-- Tool Integration: https://ai.pydantic.dev/tools/
-- Testing Patterns: https://ai.pydantic.dev/testing/
-- Model Providers: https://ai.pydantic.dev/models/
+- Pydantic AI 官方文档：https://ai.pydantic.dev/
+- 智能体创建指南：https://ai.pydantic.dev/agents/
+- 工具集成文档：https://ai.pydantic.dev/tools/
+- 测试模式文档：https://ai.pydantic.dev/testing/
+- 模型提供方文档：https://ai.pydantic.dev/models/
 
-## OTHER CONSIDERATIONS:
+## 其他注意事项（OTHER CONSIDERATIONS）:
 
-- Use environment variables for API key configuration instead of hardcoded model strings
-- Keep agents simple - default to string output unless structured output is specifically needed
-- Follow the main_agent_reference patterns for configuration and providers
-- Always include comprehensive testing with TestModel for development
+- API key 配置请用环境变量，禁止硬编码模型字符串
+- 智能体尽量保持简单——默认字符串输出，除非确实需要结构化输出
+- 配置和模型提供方请遵循 main_agent_reference 模式
+- 开发阶段务必用 TestModel 做全面测试
 
-[Add any additional considerations for the coding assistant, especially "gotchas" you want it to keep in mind.]
+[如有其他注意事项或“坑”，请在此补充，便于编程助手规避问题。]

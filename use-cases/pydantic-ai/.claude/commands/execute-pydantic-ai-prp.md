@@ -1,55 +1,55 @@
-# Execute Pydantic AI Agent PRP
+# 执行 Pydantic AI Agent PRP
 
-Implement a Pydantic AI agent using the PRP file.
+使用 PRP 文件实现一个 Pydantic AI agent。
 
-## PRP File: $ARGUMENTS
+## PRP 文件：$ARGUMENTS
 
-## Execution Process
+## 执行流程
 
-1. **Load PRP**
-   - Read the specified Pydantic AI PRP file
-   - Understand all agent requirements and research findings
-   - Follow all instructions in the PRP and extend research if needed
-   - Review main_agent_reference patterns for implementation guidance
-   - Do more web searches and Pydantic AI documentation review as needed
+1. **加载 PRP**
+   - 读取指定的 Pydantic AI PRP 文件
+   - 理解所有 agent 要求和调研结论
+   - 遵循 PRP 中的所有指令，并在需要时扩展调研
+   - 参考 main_agent_reference 的实现模式
+   - 必要时进一步检索 Pydantic AI 文档和网络资料
 
-2. **ULTRATHINK**
-   - Think hard before executing the agent implementation plan
-   - Break down agent development into smaller steps using your todos tools  
-   - Use the TodoWrite tool to create and track your agent implementation plan
-   - Follow main_agent_reference patterns for configuration and structure
-   - Plan agent.py, tools.py, dependencies.py, and testing approach
+2. **ULTRATHINK 深度思考**
+   - 在执行 agent 实现计划前深入思考
+   - 使用 todos 工具将 agent 开发拆解为更小的步骤
+   - 使用 TodoWrite 工具创建并跟踪 agent 实现计划
+   - 参考 main_agent_reference 的配置和结构
+   - 规划 agent.py、tools.py、dependencies.py 及测试方案
 
-3. **Execute the plan**
-   - Implement the Pydantic AI agent following the PRP
-   - Create agent with environment-based configuration (settings.py, providers.py)
-   - Use string output by default (no result_type unless structured output needed)
-   - Implement tools with @agent.tool decorators and proper error handling
-   - Add comprehensive testing with TestModel and FunctionModel
+3. **执行计划**
+   - 按照 PRP 实现 Pydantic AI agent
+   - 创建基于环境变量配置的 agent（settings.py, providers.py）
+   - 默认使用字符串输出（除非需要结构化输出时才用 result_type）
+   - 用 @agent.tool 装饰器和适当的错误处理实现工具
+   - 添加包含 TestModel 和 FunctionModel 的全面测试
 
-4. **Validate**
-   - Test agent import and instantiation
-   - Run TestModel validation for rapid development testing
-   - Test tool registration and functionality
-   - Run pytest test suite if created
-   - Verify agent follows main_agent_reference patterns
+4. **验证**
+   - 测试 agent 的导入和实例化
+   - 运行 TestModel 验证以加速开发测试
+   - 测试工具注册和功能
+   - 如有创建，运行 pytest 测试套件
+   - 验证 agent 是否遵循 main_agent_reference 模式
 
-5. **Complete**
-   - Ensure all PRP checklist items done
-   - Test agent with example queries
-   - Verify security patterns (environment variables, error handling)
-   - Report completion status
-   - Read the PRP again to ensure complete implementation
+5. **完成**
+   - 确保所有 PRP 检查项已完成
+   - 用示例查询测试 agent
+   - 检查安全模式（环境变量、错误处理）
+   - 报告完成状态
+   - 再次阅读 PRP，确保实现完整
 
-6. **Reference the PRP**
-   - You can always reference the PRP again if needed
+6. **参考 PRP**
+   - 如有需要，可随时再次参考 PRP
 
-## Pydantic AI-Specific Patterns to Follow
+## Pydantic AI 专用实现模式
 
-- **Configuration**: Use environment-based setup like main_agent_reference  
-- **Output**: Default to string output, only use result_type when validation needed
-- **Tools**: Use @agent.tool with RunContext for dependency injection
-- **Testing**: Include TestModel validation for development
-- **Security**: Environment variables for API keys, proper error handling
+- **配置**：采用类似 main_agent_reference 的基于环境变量的配置
+- **输出**：默认字符串输出，仅在需要验证时使用 result_type
+- **工具**：用 @agent.tool 和 RunContext 进行依赖注入
+- **测试**：开发阶段包含 TestModel 验证
+- **安全**：API key 用环境变量，注意错误处理
 
-Note: If validation fails, use error patterns in PRP to fix and retry. Follow main_agent_reference for proven Pydantic AI implementation patterns.
+注意：如验证失败，按 PRP 中的错误处理模式修复并重试。实现时始终参考 main_agent_reference 的最佳实践。

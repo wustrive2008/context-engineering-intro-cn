@@ -1,57 +1,61 @@
-# PydanticAI Context Engineering - Global Rules for AI Agent Development
 
-This file contains the global rules and principles that apply to ALL PydanticAI agent development work. These rules are specialized for building production-grade AI agents with tools, memory, and structured outputs.
+# PydanticAI 上下文工程 —— AI 智能体开发全局规范
 
-## 🔄 PydanticAI Core Principles
+本文件包含适用于所有 PydanticAI 智能体开发的全局规则和原则。这些规则专为构建具备工具、记忆和结构化输出的生产级 AI 智能体而设。
 
-**IMPORTANT: These principles apply to ALL PydanticAI agent development:**
+## 🔄 PydanticAI 核心原则
 
-### Agent Development Workflow
-- **Always start with INITIAL.md** - Define agent requirements before generating PRPs
-- **Use the PRP pattern**: INITIAL.md → `/generate-pydantic-ai-prp INITIAL.md` → `/execute-pydantic-ai-prp PRPs/filename.md`
-- **Follow validation loops** - Each PRP must include agent testing with TestModel/FunctionModel
-- **Context is King** - Include ALL necessary PydanticAI patterns, examples, and documentation
+**重要：以下原则适用于所有 PydanticAI 智能体开发：**
 
-### Research Methodology for AI Agents
-- **Web search extensively** - Always research PydanticAI patterns and best practices
-- **Study official documentation** - ai.pydantic.dev is the authoritative source
-- **Pattern extraction** - Identify reusable agent architectures and tool patterns
-- **Gotcha documentation** - Document async patterns, model limits, and context management issues
+### 智能体开发工作流
+- **始终从 INITIAL.md 开始** —— 在生成 PRP 前先定义智能体需求
+- **采用 PRP 流程**：INITIAL.md → `/generate-pydantic-ai-prp INITIAL.md` → `/execute-pydantic-ai-prp PRPs/filename.md`
+- **遵循验证循环** —— 每个 PRP 必须包含 TestModel/FunctionModel 的智能体测试
+- **上下文为王** —— 必须包含所有必要的 PydanticAI 模式、示例和文档
 
-## 📚 Project Awareness & Context
 
-- **Use a virtual environment** to run all code and tests. If one isn't already in the codebase when needed, create it
-- **Use consistent PydanticAI naming conventions** and agent structure patterns
-- **Follow established agent directory organization** patterns (agent.py, tools.py, models.py)
-- **Leverage PydanticAI examples extensively** - Study existing patterns before creating new agents
+### 智能体调研方法论
+- **广泛网络检索** —— 持续调研 PydanticAI 模式与最佳实践
+- **研读官方文档** —— ai.pydantic.dev 是权威资料来源
+- **模式提炼** —— 识别可复用的智能体架构和工具模式
+- **记录易错点** —— 文档化异步模式、模型限制和上下文管理问题
 
-## 🧱 Agent Structure & Modularity
 
-- **Never create files longer than 500 lines** - Split into modules when approaching limit
-- **Organize agent code into clearly separated modules** grouped by responsibility:
-  - `agent.py` - Main agent definition and execution logic
-  - `tools.py` - Tool functions used by the agent
-  - `models.py` - Pydantic output models and dependency classes
-  - `dependencies.py` - Context dependencies and external service integrations
-- **Use clear, consistent imports** - Import from pydantic_ai package appropriately
-- **Use python-dotenv and load_dotenv()** for environment variables - Follow examples/main_agent_reference/settings.py pattern
-- **Never hardcode sensitive information** - Always use .env files for API keys and configuration
+## 📚 项目意识与上下文
 
-## 🤖 PydanticAI Development Standards
+- **始终使用虚拟环境** 运行所有代码和测试，如项目中未包含请自行创建
+- **统一 PydanticAI 命名规范** 和智能体结构模式
+- **遵循既定的智能体目录组织**（如 agent.py、tools.py、models.py）
+- **充分参考 PydanticAI 示例** —— 在创建新智能体前先学习现有模式
 
-### Agent Creation Patterns
-- **Use model-agnostic design** - Support multiple providers (OpenAI, Anthropic, Gemini)
-- **Implement dependency injection** - Use deps_type for external services and context
-- **Define structured outputs** - Use Pydantic models for result validation
-- **Include comprehensive system prompts** - Both static and dynamic instructions
 
-### Tool Integration Standards
-- **Use @agent.tool decorator** for context-aware tools with RunContext[DepsType]
-- **Use @agent.tool_plain decorator** for simple tools without context dependencies
-- **Implement proper parameter validation** - Use Pydantic models for tool parameters
-- **Handle tool errors gracefully** - Implement retry mechanisms and error recovery
+## 🧱 智能体结构与模块化
 
-### Environment Variable Configuration with python-dotenv
+- **单文件不超过 500 行** —— 接近上限时请拆分为多个模块
+- **按职责清晰分模块组织代码**：
+  - `agent.py` —— 智能体主定义与执行逻辑
+  - `tools.py` —— 智能体用到的工具函数
+  - `models.py` —— Pydantic 输出模型与依赖类
+  - `dependencies.py` —— 上下文依赖与外部服务集成
+- **保持清晰一致的 import** —— 正确从 pydantic_ai 包导入
+- **环境变量用 python-dotenv 和 load_dotenv()** —— 参考 examples/main_agent_reference/settings.py
+- **敏感信息绝不硬编码** —— API key 和配置始终用 .env 文件管理
+
+## 🤖 PydanticAI 开发规范
+
+### 智能体创建模式
+- **采用模型无关设计** —— 支持多种模型提供方（如 OpenAI、Anthropic、Gemini）
+- **实现依赖注入** —— 用 deps_type 注入外部服务和上下文
+- **定义结构化输出** —— 用 Pydantic 模型做结果校验
+- **系统提示词要全面** —— 包含静态和动态指令
+
+### 工具集成规范
+- **用 @agent.tool 装饰器** 实现带上下文的工具（RunContext[DepsType]）
+- **用 @agent.tool_plain 装饰器** 实现无依赖的简单工具
+- **参数校验要规范** —— 工具参数用 Pydantic 模型
+- **优雅处理工具错误** —— 实现重试和错误恢复机制
+
+### 环境变量配置（python-dotenv）
 ```python
 # Use python-dotenv and pydantic-settings for proper configuration management
 from pydantic_settings import BaseSettings
@@ -102,41 +106,44 @@ def get_llm_model():
     return OpenAIModel(settings.llm_model, provider=provider)
 ```
 
-### Testing Standards for AI Agents
-- **Use TestModel for development** - Fast validation without API calls
-- **Use FunctionModel for custom behavior** - Control agent responses in tests
-- **Use Agent.override() for testing** - Replace models in test contexts
-- **Test both sync and async patterns** - Ensure compatibility with different execution modes
-- **Test tool validation** - Verify tool parameter schemas and error handling
 
-## ✅ Task Management for AI Development
+### 智能体测试规范
+- **开发阶段用 TestModel** —— 快速校验，无需 API 调用
+- **自定义行为用 FunctionModel** —— 测试中可控智能体响应
+- **用 Agent.override() 做测试隔离** —— 测试上下文中替换模型
+- **同步/异步模式都要测** —— 保证不同执行方式兼容
+- **工具参数和错误校验要测** —— 校验工具参数 schema 和错误处理
 
-- **Break agent development into clear steps** with specific completion criteria
-- **Mark tasks complete immediately** after finishing agent implementations
-- **Update task status in real-time** as agent development progresses
-- **Test agent behavior** before marking implementation tasks complete
 
-## 📎 PydanticAI Coding Standards
+## ✅ 智能体开发任务管理
 
-### Agent Architecture
+- **将开发拆解为明确步骤** —— 每步有具体完成标准
+- **实现后立即标记完成** —— 任务完成及时更新
+- **开发进度实时同步** —— 随开发推进更新任务状态
+- **实现前务必测试行为** —— 通过测试再标记任务完成
+
+
+## 📎 PydanticAI 编码规范
+
+### 智能体架构示例
 ```python
-# Follow main_agent_reference patterns - no result_type unless structured output needed
+# 遵循 main_agent_reference 模式 —— 没有结构化输出需求时默认字符串输出
 from pydantic_ai import Agent, RunContext
 from dataclasses import dataclass
 from .settings import load_settings
 
 @dataclass
 class AgentDependencies:
-    """Dependencies for agent execution"""
+    """智能体执行依赖"""
     api_key: str
     session_id: str = None
 
-# Load settings with proper dotenv handling
+# 正确加载 dotenv 环境变量
 settings = load_settings()
 
-# Simple agent with string output (default)
+# 默认字符串输出的简单智能体
 agent = Agent(
-    get_llm_model(),  # Uses load_settings() internally
+    get_llm_model(),  # 内部调用 load_settings()
     deps_type=AgentDependencies,
     system_prompt="You are a helpful assistant..."
 )
@@ -146,63 +153,65 @@ async def example_tool(
     ctx: RunContext[AgentDependencies], 
     query: str
 ) -> str:
-    """Tool with proper context access"""
+    """具备上下文访问的工具函数"""
     return await external_api_call(ctx.deps.api_key, query)
 ```
 
-### Security Best Practices
-- **API key management** - Use python-dotenv with .env files, never commit keys to version control
-- **Environment variable loading** - Always use load_dotenv() following examples/main_agent_reference/settings.py
-- **Input validation** - Use Pydantic models for all tool parameters
-- **Rate limiting** - Implement proper request throttling for external APIs
-- **Prompt injection prevention** - Validate and sanitize user inputs
-- **Error handling** - Never expose sensitive information in error messages
 
-### Common PydanticAI Gotchas
-- **Async/sync mixing issues** - Be consistent with async/await patterns throughout
-- **Model token limits** - Different models have different context limits, plan accordingly
-- **Dependency injection complexity** - Keep dependency graphs simple and well-typed
-- **Tool error handling failures** - Always implement proper retry and fallback mechanisms
-- **Context state management** - Design stateless tools when possible for reliability
+### 安全最佳实践
+- **API key 管理** —— 用 python-dotenv 和 .env 文件，密钥绝不提交到版本库
+- **环境变量加载** —— 始终用 load_dotenv()，参考 main_agent_reference/settings.py
+- **输入校验** —— 所有工具参数用 Pydantic 模型
+- **限流** —— 外部 API 要实现请求限流
+- **防止提示注入** —— 校验和清洗用户输入
+- **错误处理** —— 错误信息绝不暴露敏感内容
 
-## 🔍 Research Standards for AI Agents
+### 常见 PydanticAI 易错点
+- **异步/同步混用问题** —— 全程保持 async/await 风格一致
+- **模型 token 限制** —— 不同模型上下文长度不同，需提前规划
+- **依赖注入复杂度** —— 依赖关系要简单、类型清晰
+- **工具错误处理缺失** —— 必须实现重试和降级机制
+- **上下文状态管理** —— 能无状态就无状态，提升可靠性
 
-- **Use Archon MCP server** - Leverage available PydanticAI documentation via RAG
-- **Study official examples** - ai.pydantic.dev/examples has working implementations
-- **Research model capabilities** - Understand provider-specific features and limitations
-- **Document integration patterns** - Include external service integration examples
 
-## 🎯 Implementation Standards for AI Agents
+## 🔍 智能体调研规范
 
-- **Follow the PRP workflow religiously** - Don't skip agent validation steps
-- **Always test with TestModel first** - Validate agent logic before using real models
-- **Use existing agent patterns** rather than creating from scratch
-- **Include comprehensive error handling** for tool failures and model errors
-- **Test streaming patterns** when implementing real-time agent interactions
+- **用 Archon MCP server** —— 通过 RAG 获取 PydanticAI 文档
+- **研读官方示例** —— ai.pydantic.dev/examples 有完整实现
+- **调研模型能力** —— 理解不同提供方的特性和限制
+- **记录集成模式** —— 包含外部服务集成示例
 
-## 🚫 Anti-Patterns to Always Avoid
+## 🎯 智能体实现规范
 
-- ❌ Don't skip agent testing - Always use TestModel/FunctionModel for validation
-- ❌ Don't hardcode model strings - Use environment-based configuration like main_agent_reference
-- ❌ Don't use result_type unless structured output is specifically needed - default to string
-- ❌ Don't ignore async patterns - PydanticAI has specific async/sync considerations
-- ❌ Don't create complex dependency graphs - Keep dependencies simple and testable
-- ❌ Don't forget tool error handling - Implement proper retry and graceful degradation
-- ❌ Don't skip input validation - Use Pydantic models for all external inputs
+- **严格遵循 PRP 工作流** —— 不可跳过智能体验证步骤
+- **始终先用 TestModel 测试** —— 逻辑通过后再用真实模型
+- **优先用现有智能体模式** —— 不要重复造轮子
+- **工具和模型错误要全面处理**
+- **流式交互要测试** —— 实现实时智能体时需覆盖
 
-## 🔧 Tool Usage Standards for AI Development
+## 🚫 坚决避免的反模式
 
-- **Use web search extensively** for PydanticAI research and documentation
-- **Follow PydanticAI command patterns** for slash commands and agent workflows
-- **Use agent validation loops** to ensure quality at each development step
-- **Test with multiple model providers** to ensure agent compatibility
+- ❌ 不做测试 —— 必须用 TestModel/FunctionModel 验证
+- ❌ 模型字符串硬编码 —— 用环境变量配置，参考 main_agent_reference
+- ❌ 非必要不加 result_type —— 默认字符串输出
+- ❌ 忽略异步模式 —— PydanticAI 有专门的 async/sync 规范
+- ❌ 依赖关系复杂 —— 保持依赖简单、可测
+- ❌ 工具错误处理缺失 —— 必须有重试和降级
+- ❌ 输入校验缺失 —— 所有外部输入都用 Pydantic 校验
 
-## 🧪 Testing & Reliability for AI Agents
+## 🔧 智能体开发工具使用规范
 
-- **Always create comprehensive agent tests** for tools, outputs, and error handling
-- **Test agent behavior with TestModel** before using real model providers
-- **Include edge case testing** for tool failures and model provider issues
-- **Test both structured and unstructured outputs** to ensure agent flexibility
-- **Validate dependency injection** works correctly in test environments
+- **广泛网络检索** —— 查找 PydanticAI 资料和文档
+- **遵循 PydanticAI 命令模式** —— 斜杠命令和智能体工作流
+- **用验证循环保障质量** —— 每步开发都要验证
+- **多模型提供方测试** —— 保证智能体兼容性
 
-These global rules apply specifically to PydanticAI agent development and ensure production-ready AI applications with proper error handling, testing, and security practices.
+## 🧪 智能体测试与可靠性
+
+- **必须写全面测试** —— 工具、输出、错误都要覆盖
+- **先用 TestModel 测试行为** —— 再用真实模型
+- **覆盖边界场景** —— 工具失败、模型异常等
+- **结构化/非结构化输出都要测** —— 保证灵活性
+- **依赖注入要可测** —— 测试环境下依赖注入要正常
+
+以上全局规范专为 PydanticAI 智能体开发制定，确保生产级 AI 应用具备完善的错误处理、测试和安全实践。

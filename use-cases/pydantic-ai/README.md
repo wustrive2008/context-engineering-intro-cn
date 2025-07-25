@@ -1,189 +1,188 @@
-# Pydantic AI Context Engineering Template
+# Pydantic AI 上下文工程模板
 
-A comprehensive template for building production-grade AI agents using Pydantic AI with context engineering best practices, tools integration, structured outputs, and comprehensive testing patterns.
+一个用于构建生产级 Pydantic AI 智能体的综合模板，涵盖上下文工程最佳实践、工具集成、结构化输出和全面测试模式。
 
-## 🚀 Quick Start - Copy Template
+## 🚀 快速开始 - 复制模板
 
-**Get started in 2 minutes:**
+**2 分钟上手：**
 
 ```bash
-# Clone the context engineering repository
+# 克隆上下文工程仓库
 git clone https://github.com/coleam00/Context-Engineering-Intro.git
 cd Context-Engineering-Intro/use-cases/pydantic-ai
 
-# 1. Copy this template to your new project
+# 1. 复制本模板到你的新项目
 python copy_template.py /path/to/my-agent-project
 
-# 2. Navigate to your project
+# 2. 进入你的项目目录
 cd /path/to/my-agent-project
 
-# 3. Start building with the PRP workflow
-# Fill out PRPs/INITIAL.md with the agent you want to create
+# 3. 按 PRP 工作流开始构建
+# 填写 PRPs/INITIAL.md，描述你要创建的智能体
 
-# 4. Generate the PRP based on your detailed requirements (validate the PRP after generating!)
+# 4. 根据详细需求生成 PRP（生成后请校验 PRP！）
 /generate-pydantic-ai-prp PRPs/INITIAL.md
 
-# 5. Execute the PRP to create your Pydantic AI agent
+# 5. 执行 PRP，创建你的 Pydantic AI 智能体
 /execute-pydantic-ai-prp PRPs/generated_prp.md
 ```
 
-If you are not using Claude Code, you can simply tell your AI coding assistant to use the generate-pydantic-ai-prp and execute-pydantic-ai-prp slash commands in .claude/commands as prompts.
+如果你未使用 Claude Code，可以让你的 AI 编程助手直接用 .claude/commands 目录下的 generate-pydantic-ai-prp 和 execute-pydantic-ai-prp 命令作为提示词。
 
-## 📖 What is This Template?
+## 📖 模板简介
 
-This template provides everything you need to build sophisticated Pydantic AI agents using proven context engineering workflows. It combines:
+本模板为你构建复杂的 Pydantic AI 智能体提供一切所需，采用成熟的上下文工程工作流，集成：
 
-- **Pydantic AI Best Practices**: Type-safe agents with tools, structured outputs, and dependency injection
-- **Context Engineering Workflows**: Proven PRP (Product Requirements Prompts) methodology
-- **Working Examples**: Complete agent implementations you can learn from and extend
+- **Pydantic AI 最佳实践**：类型安全的智能体，工具集成，结构化输出，依赖注入
+- **上下文工程工作流**：成熟的 PRP（产品需求提示）方法论
+- **工作示例**：完整的智能体实现，可学习和扩展
 
-## 🎯 PRP Framework Workflow
+## 🎯 PRP 框架工作流
 
-This template uses a 3-step context engineering workflow for building AI agents:
+本模板采用三步上下文工程工作流构建智能体：
 
-### 1. **Define Requirements** (`PRPs/INITIAL.md`)
-Start by clearly defining what your agent needs to do:
+### 1. **定义需求**（`PRPs/INITIAL.md`）
+首先明确你的智能体要做什么：
 ```markdown
-# Customer Support Agent - Initial Requirements
+# 客服智能体 - 初始需求
 
-## Overview
-Build an intelligent customer support agent that can handle inquiries, 
-access customer data, and escalate issues appropriately.
+## 概述
+构建一个能处理咨询、访问客户数据并适当升级问题的智能客服智能体。
 
-## Core Requirements
-- Multi-turn conversations with context and memory
-- Customer authentication and account access
-- Account balance and transaction queries
-- Payment processing and refund handling
+## 核心需求
+- 多轮对话，具备上下文和记忆
+- 客户身份验证与账户访问
+- 账户余额与交易查询
+- 支付处理与退款操作
 ...
 ```
 
-### 2. **Generate Implementation Plan** 
+### 2. **生成实现方案**
 ```bash
 /generate-pydantic-ai-prp PRPs/INITIAL.md
 ```
-This creates a comprehensive 'Product Requirements Prompts' document that includes:
-- Pydantic AI technology research and best practices
-- Agent architecture design with tools and dependencies
-- Implementation roadmap with validation loops
-- Security patterns and production considerations
+这将生成一份全面的“产品需求提示”文档，内容包括：
+- Pydantic AI 技术调研与最佳实践
+- 智能体架构设计（工具与依赖）
+- 实现路线图与验证循环
+- 安全模式与生产注意事项
 
-### 3. **Execute Implementation**
+### 3. **执行实现**
 ```bash
 /execute-pydantic-ai-prp PRPs/your_agent.md
 ```
-This implements the complete agent based on the PRP, including:
-- Agent creation with proper model provider configuration
-- Tool integration with error handling and validation
-- Structured output models with Pydantic validation
-- Comprehensive testing with TestModel and FunctionModel
+根据 PRP 实现完整智能体，包括：
+- 智能体创建与模型提供方配置
+- 工具集成、错误处理与校验
+- 结构化输出模型与 Pydantic 校验
+- TestModel 和 FunctionModel 全面测试
 
-## 📂 Template Structure
+## 📂 模板结构
 
 ```
 pydantic-ai/
-├── CLAUDE.md                           # Pydantic AI global development rules
-├── copy_template.py                    # Template deployment script
+├── CLAUDE.md                           # Pydantic AI 全局开发规范
+├── copy_template.py                    # 模板部署脚本
 ├── .claude/commands/
-│   ├── generate-pydantic-ai-prp.md     # PRP generation for agents
-│   └── execute-pydantic-ai-prp.md      # PRP execution for agents
+│   ├── generate-pydantic-ai-prp.md     # 智能体 PRP 生成
+│   └── execute-pydantic-ai-prp.md      # 智能体 PRP 执行
 ├── PRPs/
 │   ├── templates/
-│   │   └── prp_pydantic_ai_base.md     # Base PRP template for agents
-│   └── INITIAL.md                      # Example agent requirements
+│   │   └── prp_pydantic_ai_base.md     # 智能体 PRP 基础模板
+│   └── INITIAL.md                      # 智能体需求示例
 ├── examples/
-│   ├── basic_chat_agent/               # Simple conversational agent
-│   │   ├── agent.py                    # Agent with memory and context
-│   │   └── README.md                   # Usage guide
-│   ├── tool_enabled_agent/             # Agent with external tools
-│   │   ├── agent.py                    # Web search + calculator tools
-│   │   └── requirements.txt            # Dependencies
-│   └── testing_examples/               # Comprehensive testing patterns
-│       ├── test_agent_patterns.py      # TestModel, FunctionModel examples
-│       └── pytest.ini                  # Test configuration
-└── README.md                           # This file
+│   ├── basic_chat_agent/               # 简单对话智能体
+│   │   ├── agent.py                    # 具备记忆和上下文的智能体
+│   │   └── README.md                   # 使用说明
+│   ├── tool_enabled_agent/             # 工具增强型智能体
+│   │   ├── agent.py                    # 集成网页搜索和计算器
+│   │   └── requirements.txt            # 依赖
+│   └── testing_examples/               # 全面测试模式
+│       ├── test_agent_patterns.py      # TestModel、FunctionModel 示例
+│       └── pytest.ini                  # 测试配置
+└── README.md                           # 本文件
 ```
 
-## 🤖 Agent Examples Included
+## 🤖 智能体示例
 
-### 1. Main Agent Reference (`examples/main_agent_reference/`)
-**The canonical reference implementation** showing proper Pydantic AI patterns:
-- Environment-based configuration with `settings.py` and `providers.py`
-- Clean separation of concerns between email and research agents
-- Proper file structure to separate prompts, tools, agents, and Pydantic models
-- Tool integration with external APIs (Gmail, Brave Search)
+### 1. 主智能体参考（`examples/main_agent_reference/`）
+**权威参考实现**，展示标准 Pydantic AI 模式：
+- 基于环境变量的配置（`settings.py`、`providers.py`）
+- 邮件与调研智能体关注点分离
+- 按文件类型分离 prompts、tools、agents、Pydantic models
+- 工具集成外部 API（Gmail、Brave Search）
 
-**Key Files:**
-- `settings.py`: Environment configuration with pydantic-settings
-- `providers.py`: Model provider abstraction with `get_llm_model()`
-- `research_agent.py`: Multi-tool agent with web search and email integration
-- `email_agent.py`: Specialized agent for Gmail draft creation
+**关键文件：**
+- `settings.py`：基于 pydantic-settings 的环境配置
+- `providers.py`：模型提供方抽象，`get_llm_model()`
+- `research_agent.py`：多工具集成，网页搜索+邮件
+- `email_agent.py`：Gmail 草稿专用智能体
 
-### 2. Basic Chat Agent (`examples/basic_chat_agent/`)
-A simple conversational agent demonstrating core patterns:
-- **Environment-based model configuration** (follows main_agent_reference)
-- **String output by default** (no `result_type` unless needed)
-- System prompts (static and dynamic)
-- Conversation memory with dependency injection
+### 2. 基础对话智能体（`examples/basic_chat_agent/`）
+简单对话智能体，演示核心模式：
+- **基于环境变量的模型配置**（同 main_agent_reference）
+- **默认字符串输出**（无 result_type）
+- 系统提示词（静态/动态）
+- 依赖注入实现对话记忆
 
-**Key Features:**
-- Simple string responses (not structured output)
-- Settings-based configuration pattern
-- Conversation context tracking
-- Clean, minimal implementation
+**主要特性：**
+- 简单字符串响应（非结构化输出）
+- 基于 settings 的配置模式
+- 对话上下文追踪
+- 简洁实现
 
-### 3. Tool-Enabled Agent (`examples/tool_enabled_agent/`)
-An agent with tool integration capabilities:
-- **Environment-based configuration** (follows main_agent_reference)
-- **String output by default** (no unnecessary structure)
-- Web search and calculation tools
-- Error handling and retry mechanisms
+### 3. 工具增强型智能体（`examples/tool_enabled_agent/`）
+具备工具集成能力的智能体：
+- **基于环境变量的配置**（同 main_agent_reference）
+- **默认字符串输出**（无多余结构）
+- 集成网页搜索和计算工具
+- 错误处理与重试机制
 
-**Key Features:**
-- `@agent.tool` decorator patterns
-- RunContext for dependency injection
-- Tool error handling and recovery
-- Simple string responses from tools
+**主要特性：**
+- `@agent.tool` 装饰器模式
+- RunContext 依赖注入
+- 工具错误处理与恢复
+- 工具返回简单字符串
 
-### 4. Structured Output Agent (`examples/structured_output_agent/`)
-**NEW**: Shows when to use `result_type` for data validation:
-- **Environment-based configuration** (follows main_agent_reference)
-- **Structured output with Pydantic validation** (when specifically needed)
-- Data analysis with statistical tools
-- Professional report generation
+### 4. 结构化输出智能体（`examples/structured_output_agent/`）
+**新示例**：展示何时用 `result_type` 进行数据校验：
+- **基于环境变量的配置**（同 main_agent_reference）
+- **结构化输出+Pydantic 校验**（仅在确实需要时）
+- 数据分析与统计工具
+- 专业报告生成
 
-**Key Features:**
-- Demonstrates proper use of `result_type`
-- Pydantic validation for business reports
-- Data analysis tools with numerical statistics
-- Clear documentation on when to use structured vs string output
+**主要特性：**
+- 正确使用 `result_type`
+- Pydantic 校验业务报告
+- 数据分析工具与数值统计
+- 何时用结构化/字符串输出有清晰说明
 
-### 5. Testing Examples (`examples/testing_examples/`)
-Comprehensive testing patterns for Pydantic AI agents:
-- TestModel for rapid development validation
-- FunctionModel for custom behavior testing
-- Agent.override() for test isolation
-- Pytest fixtures and async testing
+### 5. 测试示例（`examples/testing_examples/`）
+Pydantic AI 智能体全面测试模式：
+- TestModel 快速开发验证
+- FunctionModel 自定义行为测试
+- Agent.override() 测试隔离
+- Pytest fixtures 与异步测试
 
-**Key Features:**
-- Unit testing without API costs
-- Mock dependency injection
-- Tool validation and error scenario testing
-- Integration testing patterns
+**主要特性：**
+- 单元测试无需 API 成本
+- 依赖注入 mock
+- 工具校验与错误场景测试
+- 集成测试模式
 
-## 📚 Additional Resources
+## 📚 其他资源
 
-- **Official Pydantic AI Documentation**: https://ai.pydantic.dev/
-- **Context Engineering Methodology**: See main repository README
+- **Pydantic AI 官方文档**：https://ai.pydantic.dev/
+- **上下文工程方法论**：见主仓库 README
 
-## 🆘 Support & Contributing
+## 🆘 支持与贡献
 
-- **Issues**: Report problems with the template or examples
-- **Improvements**: Contribute additional examples or patterns
-- **Questions**: Ask about Pydantic AI integration or context engineering
+- **问题反馈**：模板或示例有问题请提交 issue
+- **改进建议**：欢迎贡献更多示例或模式
+- **疑问咨询**：关于 Pydantic AI 集成或上下文工程可提问
 
-This template is part of the larger Context Engineering framework. See the main repository for more context engineering templates and methodologies.
+本模板属于更大的上下文工程框架。更多上下文工程模板和方法论请见主仓库。
 
 ---
 
-**Ready to build production-grade AI agents?** Start with `python copy_template.py my-agent-project` and follow the PRP workflow! 🚀
+**准备好构建生产级 AI 智能体了吗？** 直接运行 `python copy_template.py my-agent-project` 并按 PRP 工作流推进吧！🚀

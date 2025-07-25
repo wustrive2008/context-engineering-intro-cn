@@ -1,296 +1,296 @@
-# Context Engineering Template
+# 上下文工程模板
 
-A comprehensive template for getting started with Context Engineering - the discipline of engineering context for AI coding assistants so they have the information necessary to get the job done end to end.
+一个全面的模板，用于开始使用上下文工程 - 为AI编程助手设计上下文的学科，使它们拥有完成任务所需的全部信息。
 
-> **Context Engineering is 10x better than prompt engineering and 100x better than vibe coding.**
+> **上下文工程比提示词工程好10倍，比氛围编程好100倍。**
 
-## 🚀 Quick Start
+## 🚀 快速开始
 
 ```bash
-# 1. Clone this template
-git clone https://github.com/coleam00/Context-Engineering-Intro.git
-cd Context-Engineering-Intro
+# 1. 克隆此模板
+git clone https://github.com/wustrive2008/context-engineering-intro-cn.git
+cd context-engineering-intro-cn
 
-# 2. Set up your project rules (optional - template provided)
-# Edit CLAUDE.md to add your project-specific guidelines
+# 2. 设置项目规则（可选 - 已提供模板）
+# 编辑 CLAUDE.md 添加您的项目特定指南
 
-# 3. Add examples (highly recommended)
-# Place relevant code examples in the examples/ folder
+# 3. 添加示例（强烈推荐）
+# 将相关代码示例放在 examples/ 文件夹中
 
-# 4. Create your initial feature request
-# Edit INITIAL.md with your feature requirements
+# 4. 创建初始功能需求
+# 编辑 INITIAL.md 填写您的功能需求
 
-# 5. Generate a comprehensive PRP (Product Requirements Prompt)
-# In Claude Code, run:
+# 5. 生成全面的PRP（产品需求提示词）
+# 在 Claude Code 中运行：
 /generate-prp INITIAL.md
 
-# 6. Execute the PRP to implement your feature
-# In Claude Code, run:
+# 6. 执行PRP实现您的功能
+# 在 Claude Code 中运行：
 /execute-prp PRPs/your-feature-name.md
 ```
 
-## 📚 Table of Contents
+## 📚 目录
 
-- [What is Context Engineering?](#what-is-context-engineering)
-- [Template Structure](#template-structure)
-- [Step-by-Step Guide](#step-by-step-guide)
-- [Writing Effective INITIAL.md Files](#writing-effective-initialmd-files)
-- [The PRP Workflow](#the-prp-workflow)
-- [Using Examples Effectively](#using-examples-effectively)
-- [Best Practices](#best-practices)
+- [什么是上下文工程？](#什么是上下文工程)
+- [模板结构](#模板结构)
+- [分步指南](#分步指南)
+- [编写有效的INITIAL.md文件](#编写有效的INITIALmd文件)
+- [PRP工作流程](#PRP工作流程)
+- [有效使用示例](#有效使用示例)
+- [最佳实践](#最佳实践)
 
-## What is Context Engineering?
+## 什么是上下文工程？
 
-Context Engineering represents a paradigm shift from traditional prompt engineering:
+上下文工程代表了从传统提示词工程的范式转变：
 
-### Prompt Engineering vs Context Engineering
+### 提示词工程 vs 上下文工程
 
-**Prompt Engineering:**
-- Focuses on clever wording and specific phrasing
-- Limited to how you phrase a task
-- Like giving someone a sticky note
+**提示词工程：**
+- 专注于巧妙的措辞和特定的表达
+- 仅限于如何表述任务
+- 就像给别人一张便利贴
 
-**Context Engineering:**
-- A complete system for providing comprehensive context
-- Includes documentation, examples, rules, patterns, and validation
-- Like writing a full screenplay with all the details
+**上下文工程：**
+- 提供全面上下文的完整系统
+- 包括文档、示例、规则、模式和验证
+- 就像编写包含所有细节的完整剧本
 
-### Why Context Engineering Matters
+### 为什么上下文工程很重要
 
-1. **Reduces AI Failures**: Most agent failures aren't model failures - they're context failures
-2. **Ensures Consistency**: AI follows your project patterns and conventions
-3. **Enables Complex Features**: AI can handle multi-step implementations with proper context
-4. **Self-Correcting**: Validation loops allow AI to fix its own mistakes
+1. **减少AI失败**：大多数Agent失败不是模型失败 - 而是上下文失败
+2. **确保一致性**：AI遵循您的项目模式和约定
+3. **启用复杂功能**：通过适当的上下文，AI可以处理多步骤实现
+4. **自我纠正**：验证循环允许AI修复自己的错误
 
-## Template Structure
+## 模板结构
 
 ```
 context-engineering-intro/
 ├── .claude/
 │   ├── commands/
-│   │   ├── generate-prp.md    # Generates comprehensive PRPs
-│   │   └── execute-prp.md     # Executes PRPs to implement features
-│   └── settings.local.json    # Claude Code permissions
+│   │   ├── generate-prp.md    # 生成全面的PRP
+│   │   └── execute-prp.md     # 执行PRP实现功能
+│   └── settings.local.json    # Claude Code 权限
 ├── PRPs/
 │   ├── templates/
-│   │   └── prp_base.md       # Base template for PRPs
-│   └── EXAMPLE_multi_agent_prp.md  # Example of a complete PRP
-├── examples/                  # Your code examples (critical!)
-├── CLAUDE.md                 # Global rules for AI assistant
-├── INITIAL.md               # Template for feature requests
-├── INITIAL_EXAMPLE.md       # Example feature request
-└── README.md                # This file
+│   │   └── prp_base.md       # PRP基础模板
+│   └── EXAMPLE_multi_agent_prp.md  # 完整PRP示例
+├── examples/                  # 您的代码示例（关键！）
+├── CLAUDE.md                 # AI助手的全局规则
+├── INITIAL.md               # 功能需求模板
+├── INITIAL_EXAMPLE.md       # 功能需求示例
+└── README.md                # 此文件
 ```
 
-This template doesn't focus on RAG and tools with context engineering because I have a LOT more in store for that soon. ;)
+此模板不专注于RAG和上下文工程工具，因为我很快会有更多内容。;)
 
-## Step-by-Step Guide
+## 分步指南
 
-### 1. Set Up Global Rules (CLAUDE.md)
+### 1. 设置全局规则（CLAUDE.md）
 
-The `CLAUDE.md` file contains project-wide rules that the AI assistant will follow in every conversation. The template includes:
+`CLAUDE.md` 文件包含 AI 助手在每次对话中都要遵循的项目级规则。模板包括：
 
-- **Project awareness**: Reading planning docs, checking tasks
-- **Code structure**: File size limits, module organization
-- **Testing requirements**: Unit test patterns, coverage expectations
-- **Style conventions**: Language preferences, formatting rules
-- **Documentation standards**: Docstring formats, commenting practices
+- **项目感知**：读取规划文档，检查任务
+- **代码结构**：文件大小限制，模块组织
+- **测试要求**：单元测试模式，覆盖率期望
+- **风格约定**：语言偏好，格式化规则
+- **文档标准**：文档字符串格式，注释规范
 
-**You can use the provided template as-is or customize it for your project.**
+**你可以直接使用提供的模板，也可以根据项目自定义。**
 
-### 2. Create Your Initial Feature Request
+### 2. 创建初始功能需求
 
-Edit `INITIAL.md` to describe what you want to build:
+编辑 `INITIAL.md`，描述你想要构建的内容：
 
 ```markdown
 ## FEATURE:
-[Describe what you want to build - be specific about functionality and requirements]
+[描述你要构建的内容——请具体说明功能和需求]
 
 ## EXAMPLES:
-[List any example files in the examples/ folder and explain how they should be used]
+[列出 examples/ 文件夹中的示例文件，并说明如何使用]
 
 ## DOCUMENTATION:
-[Include links to relevant documentation, APIs, or MCP server resources]
+[包含相关文档、API 或 MCP 服务器资源的链接]
 
 ## OTHER CONSIDERATIONS:
-[Mention any gotchas, specific requirements, or things AI assistants commonly miss]
+[提及注意事项、特殊需求或 AI 助手常见遗漏]
 ```
 
-**See `INITIAL_EXAMPLE.md` for a complete example.**
+**完整示例见 `INITIAL_EXAMPLE.md`。**
 
-### 3. Generate the PRP
+### 3. 生成 PRP
 
-PRPs (Product Requirements Prompts) are comprehensive implementation blueprints that include:
+PRP（产品需求提示词）是包含以下内容的全面实现蓝图：
 
-- Complete context and documentation
-- Implementation steps with validation
-- Error handling patterns
-- Test requirements
+- 完整的上下文和文档
+- 带有验证的实现步骤
+- 错误处理模式
+- 测试要求
 
-They are similar to PRDs (Product Requirements Documents) but are crafted more specifically to instruct an AI coding assistant.
+它类似于 PRD（产品需求文档），但更专门用于指导 AI 编程助手。
 
-Run in Claude Code:
+在 Claude Code 中运行：
 ```bash
 /generate-prp INITIAL.md
 ```
 
-**Note:** The slash commands are custom commands defined in `.claude/commands/`. You can view their implementation:
-- `.claude/commands/generate-prp.md` - See how it researches and creates PRPs
-- `.claude/commands/execute-prp.md` - See how it implements features from PRPs
+**注意：** 斜杠命令是在 `.claude/commands/` 中自定义的。你可以查看它们的实现：
+- `.claude/commands/generate-prp.md` - 查看如何调研并生成 PRP
+- `.claude/commands/execute-prp.md` - 查看如何根据 PRP 实现功能
 
-The `$ARGUMENTS` variable in these commands receives whatever you pass after the command name (e.g., `INITIAL.md` or `PRPs/your-feature.md`).
+这些命令中的 `$ARGUMENTS` 变量会接收你在命令名后输入的内容（如 `INITIAL.md` 或 `PRPs/your-feature.md`）。
 
-This command will:
-1. Read your feature request
-2. Research the codebase for patterns
-3. Search for relevant documentation
-4. Create a comprehensive PRP in `PRPs/your-feature-name.md`
+此命令将会：
+1. 读取你的功能需求
+2. 调研代码库中的模式
+3. 搜索相关文档
+4. 在 `PRPs/your-feature-name.md` 中生成全面的 PRP
 
-### 4. Execute the PRP
+### 4. 执行 PRP
 
-Once generated, execute the PRP to implement your feature:
+生成后，执行 PRP 以实现你的功能：
 
 ```bash
 /execute-prp PRPs/your-feature-name.md
 ```
 
-The AI coding assistant will:
-1. Read all context from the PRP
-2. Create a detailed implementation plan
-3. Execute each step with validation
-4. Run tests and fix any issues
-5. Ensure all success criteria are met
+AI 编程助手将会：
+1. 读取 PRP 的全部上下文
+2. 创建详细的实现计划
+3. 逐步执行并验证每一步
+4. 运行测试并修复问题
+5. 确保所有成功标准都达成
 
-## Writing Effective INITIAL.md Files
+## 编写有效的INITIAL.md文件
 
-### Key Sections Explained
+### 关键部分说明
 
-**FEATURE**: Be specific and comprehensive
-- ❌ "Build a web scraper"
-- ✅ "Build an async web scraper using BeautifulSoup that extracts product data from e-commerce sites, handles rate limiting, and stores results in PostgreSQL"
+**FEATURE**: 请具体和全面
+- ❌ "构建一个网络爬虫"
+- ✅ "构建一个使用BeautifulSoup的异步网络爬虫，提取电子商务网站的产品数据，处理速率限制，并将结果存储在PostgreSQL中"
 
-**EXAMPLES**: Leverage the examples/ folder
-- Place relevant code patterns in `examples/`
-- Reference specific files and patterns to follow
-- Explain what aspects should be mimicked
+**EXAMPLES**: 利用 examples/ 文件夹
+- 将相关代码模式放在 `examples/` 中
+- 参考特定文件和模式
+- 解释应模仿哪些方面
 
-**DOCUMENTATION**: Include all relevant resources
-- API documentation URLs
-- Library guides
-- MCP server documentation
-- Database schemas
+**DOCUMENTATION**: 包含所有相关资源
+- API 文档 URL
+- 库指南
+- MCP 服务器文档
+- 数据库模式
 
-**OTHER CONSIDERATIONS**: Capture important details
-- Authentication requirements
-- Rate limits or quotas
-- Common pitfalls
-- Performance requirements
+**OTHER CONSIDERATIONS**: 捕捉重要细节
+- 认证要求
+- 速率限制或配额
+- 常见陷阱
+- 性能要求
 
-## The PRP Workflow
+## PRP工作流程
 
-### How /generate-prp Works
+### /generate-prp 的工作原理
 
-The command follows this process:
+该命令遵循以下过程：
 
-1. **Research Phase**
-   - Analyzes your codebase for patterns
-   - Searches for similar implementations
-   - Identifies conventions to follow
+1. **调研阶段**
+   - 分析您的代码库中的模式
+   - 搜索类似的实现
+   - 确定要遵循的约定
 
-2. **Documentation Gathering**
-   - Fetches relevant API docs
-   - Includes library documentation
-   - Adds gotchas and quirks
+2. **文档收集**
+   - 获取相关的API文档
+   - 包括库文档
+   - 添加注意事项和特殊情况
 
-3. **Blueprint Creation**
-   - Creates step-by-step implementation plan
-   - Includes validation gates
-   - Adds test requirements
+3. **蓝图创建**
+   - 创建逐步实施计划
+   - 包括验证环节
+   - 添加测试要求
 
-4. **Quality Check**
-   - Scores confidence level (1-10)
-   - Ensures all context is included
+4. **质量检查**
+   - 评分信心级别（1-10）
+   - 确保包含所有上下文
 
-### How /execute-prp Works
+### /execute-prp 的工作原理
 
-1. **Load Context**: Reads the entire PRP
-2. **Plan**: Creates detailed task list using TodoWrite
-3. **Execute**: Implements each component
-4. **Validate**: Runs tests and linting
-5. **Iterate**: Fixes any issues found
-6. **Complete**: Ensures all requirements met
+1. **加载上下文**：读取整个 PRP
+2. **计划**：使用 TodoWrite 创建详细任务列表
+3. **执行**：实现每个组件
+4. **验证**：运行测试和代码检查
+5. **迭代**：修复发现的任何问题
+6. **完成**：确保满足所有要求
 
-See `PRPs/EXAMPLE_multi_agent_prp.md` for a complete example of what gets generated.
+有关生成内容的完整示例，请参见 `PRPs/EXAMPLE_multi_agent_prp.md`。
 
-## Using Examples Effectively
+## 有效使用示例
 
-The `examples/` folder is **critical** for success. AI coding assistants perform much better when they can see patterns to follow.
+`examples/` 文件夹对成功至关重要。当 AI 编程助手可以看到要遵循的模式时，它们的表现会更好。
 
-### What to Include in Examples
+### 示例中应包含的内容
 
-1. **Code Structure Patterns**
-   - How you organize modules
-   - Import conventions
-   - Class/function patterns
+1. **代码结构模式**
+   - 您如何组织模块
+   - 导入约定
+   - 类/函数模式
 
-2. **Testing Patterns**
-   - Test file structure
-   - Mocking approaches
-   - Assertion styles
+2. **测试模式**
+   - 测试文件结构
+   - 模拟方法
+   - 断言风格
 
-3. **Integration Patterns**
-   - API client implementations
-   - Database connections
-   - Authentication flows
+3. **集成模式**
+   - API 客户端实现
+   - 数据库连接
+   - 认证流程
 
-4. **CLI Patterns**
-   - Argument parsing
-   - Output formatting
-   - Error handling
+4. **CLI 模式**
+   - 参数解析
+   - 输出格式
+   - 错误处理
 
-### Example Structure
+### 示例结构
 
 ```
 examples/
-├── README.md           # Explains what each example demonstrates
-├── cli.py             # CLI implementation pattern
-├── agent/             # Agent architecture patterns
-│   ├── agent.py      # Agent creation pattern
-│   ├── tools.py      # Tool implementation pattern
-│   └── providers.py  # Multi-provider pattern
-└── tests/            # Testing patterns
-    ├── test_agent.py # Unit test patterns
-    └── conftest.py   # Pytest configuration
+├── README.md           # 解释每个示例演示的内容
+├── cli.py             # CLI 实现模式
+├── agent/             # 代理架构模式
+│   ├── agent.py      # 代理创建模式
+│   ├── tools.py      # 工具实现模式
+│   └── providers.py  # 多提供者模式
+└── tests/            # 测试模式
+    ├── test_agent.py # 单元测试模式
+    └── conftest.py   # Pytest 配置
 ```
 
-## Best Practices
+## 最佳实践
 
-### 1. Be Explicit in INITIAL.md
-- Don't assume the AI knows your preferences
-- Include specific requirements and constraints
-- Reference examples liberally
+### 1. 在 INITIAL.md 中明确
+- 不要假设 AI 知道您的偏好
+- 包括具体的要求和限制
+- 自由地引用示例
 
-### 2. Provide Comprehensive Examples
-- More examples = better implementations
-- Show both what to do AND what not to do
-- Include error handling patterns
+### 2. 提供全面的示例
+- 示例越多，实现效果越好
+- 同时展示该做什么和不该做什么
+- 包括错误处理模式
 
-### 3. Use Validation Gates
-- PRPs include test commands that must pass
-- AI will iterate until all validations succeed
-- This ensures working code on first try
+### 3. 使用验证环节
+- PRP 包括必须通过的测试命令
+- AI 将迭代直到所有验证成功
+- 这确保了第一次就能得到可用的代码
 
-### 4. Leverage Documentation
-- Include official API docs
-- Add MCP server resources
-- Reference specific documentation sections
+### 4. 利用文档
+- 包括官方 API 文档
+- 添加 MCP 服务器资源
+- 参考特定文档部分
 
-### 5. Customize CLAUDE.md
-- Add your conventions
-- Include project-specific rules
-- Define coding standards
+### 5. 自定义 CLAUDE.md
+- 添加您的约定
+- 包括项目特定规则
+- 定义编码标准
 
-## Resources
+## 资源
 
 - [Claude Code Documentation](https://docs.anthropic.com/en/docs/claude-code)
 - [Context Engineering Best Practices](https://www.philschmid.de/context-engineering)
